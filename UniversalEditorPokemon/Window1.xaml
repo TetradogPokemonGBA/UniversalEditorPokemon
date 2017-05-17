@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+	x:Class="UniversalEditorPokemon.Window1"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:UniversalEditorPokemon"
+	Title="UniversalEditorPokemon"
+	Width="495"
+	Height="320">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="30" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<MenuItem>
+			<MenuItem
+				x:Name="miCargarRom"
+				Header="Cargar rom"
+				Click="MiCargarRom_Click" />
+			<MenuItem
+				x:Name="miGuardarCambios"
+				Header="Guardar"
+				Click="MiGuardarCambios_Click" />
+			<MenuItem
+				x:Name="miSobre"
+				Header="Sobre"
+				Click="MiSobre_Click" />
+		</MenuItem>
+		<Grid
+			Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*"
+					MaxWidth="200" />
+				<ColumnDefinition
+					Width="4*" />
+			</Grid.ColumnDefinitions>
+			<UniformGrid x:Name="ugPokedex"/>
+			<local:EditorPokemon x:Name="epPokemonActual" Grid.Column="1"/>
+		</Grid>
+	</Grid>
+</Window>
