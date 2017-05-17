@@ -30,8 +30,9 @@ namespace UniversalEditorPokemon
 		public Window1()
 		{
 			InitializeComponent();
+			MiCargarRom_Click();
 		}
-		void MiCargarRom_Click(object sender, RoutedEventArgs e)
+		void MiCargarRom_Click(object sender=null, RoutedEventArgs e=null)
 		{
 			Image imgPokemon;
 			OpenFileDialog openRom=new OpenFileDialog();
@@ -44,14 +45,14 @@ namespace UniversalEditorPokemon
 				romCargada=new RomData(openRom.FileName);
 				
 				epPokemonActual.Rom=romCargada;
-				Title="Editando:\t"+romCargada.Rom.Nombre;
+				Title="Editando: "+romCargada.Rom.Nombre;
 				romCargada.Pokedex.Sort();
 				ugPokedex.Children.Clear();
 				for(int i=0;i<romCargada.Pokedex.Count;i++)
 				{
 					imgPokemon=new Image();
 					imgPokemon.Tag=romCargada.Pokedex[i];
-					imgPokemon.SetImage(romCargada.Pokedex[i].Sprites.SpritesFrontales);
+					imgPokemon.SetImage(romCargada.Pokedex[i].Sprites.SpritesFrontales[0]);
 					imgPokemon.MouseLeftButtonUp+=PonPokemon;
 					ugPokedex.Children.Add(imgPokemon);
 					
@@ -82,7 +83,8 @@ namespace UniversalEditorPokemon
 		}
 		void MiSobre_Click(object sender, RoutedEventArgs e)
 		{
-			MessageBox.Show("Desarrollador: Pikachu240\nCreditos a los usuarios de Wahack que han hecho posible el desarrollo con su investigacion y tutoriales");
+			if(MessageBox.Show("Desarrollador: Pikachu240 licencia GNU GPL v3\nCreditos a los usuarios de Wahack que han hecho posible el desarrollo con su investigacion y tutoriales.\n¿Quieres ver el código fuente?","Información sobre la aplicación",MessageBoxButton.YesNo,MessageBoxImage.Information)==MessageBoxResult.Yes)
+				System.Diagnostics.Process.Start("https://github.com/TetradogPokemonGBA/UniversalEditorPokemon");
 		}
 	}
 }

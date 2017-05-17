@@ -10,11 +10,11 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition
-				Height="30" />
+				Height="25" />
 			<RowDefinition
 				Height="*" />
 		</Grid.RowDefinitions>
-		<MenuItem>
+		<Menu >
 			<MenuItem
 				x:Name="miCargarRom"
 				Header="Cargar rom"
@@ -27,7 +27,7 @@
 				x:Name="miSobre"
 				Header="Sobre"
 				Click="MiSobre_Click" />
-		</MenuItem>
+		</Menu>
 		<Grid
 			Grid.Row="1">
 			<Grid.ColumnDefinitions>
@@ -37,7 +37,9 @@
 				<ColumnDefinition
 					Width="4*" />
 			</Grid.ColumnDefinitions>
-			<UniformGrid x:Name="ugPokedex"/>
+			<ScrollViewer VerticalScrollBarVisibility="Auto">
+				<UniformGrid x:Name="ugPokedex" Columns="2"/>
+			</ScrollViewer>
 			<local:EditorPokemon x:Name="epPokemonActual" Grid.Column="1"/>
 		</Grid>
 	</Grid>
