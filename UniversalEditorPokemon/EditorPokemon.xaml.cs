@@ -58,10 +58,10 @@ namespace UniversalEditorPokemon
 				//información básica
 				PokemonActual.Nombre.Texto=tbxNombre.Text;
 				PokemonActual.Descripcion.Descripcion=tbxDescripcion.Text;
-				PokemonActual.Descripcion.Altura=(short)(Convert.ToInt32(tbxAltura.Text)*100);
-				PokemonActual.Descripcion.Peso=(short)(Convert.ToInt32(tbxPeso.Text)*100);
+				PokemonActual.Descripcion.Altura=(short)(Convert.ToDouble(tbxAltura.Text.Replace(',','.'))*10);
+				PokemonActual.Descripcion.Peso=(short)(Convert.ToDouble(tbxPeso.Text.Replace(',','.'))*10);
 				
-				Pokemon.SetPokemon(Rom,PokemonActual);
+			//	Pokemon.SetPokemon(Rom,PokemonActual);
 			}
 		}
 
@@ -70,8 +70,8 @@ namespace UniversalEditorPokemon
 			imgPokemon.SetImage(PokemonActual.Sprites.SpritesFrontales[0]);
 			tbxNombre.Text=PokemonActual.Nombre;
 			tbxDescripcion.Text=PokemonActual.Descripcion.Descripcion;
-			tbxAltura.Text=(PokemonActual.Descripcion.Altura/100.0)+"";
-			tbxPeso.Text=(PokemonActual.Descripcion.Peso/100.0)+"";
+			tbxAltura.Text=(PokemonActual.Descripcion.Altura/10.0)+"";
+			tbxPeso.Text=(PokemonActual.Descripcion.Peso/10.0)+"";
 			
 		}
 	}

@@ -16,9 +16,11 @@
 				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition
-							Height="0.428571428571429*" />
+							Height="0.45774647887324*" />
 						<RowDefinition
-							Height="1.57142857142857*" />
+							Height="0.906517536592101*" />
+						<RowDefinition
+							Height="1.62937062937063*" />
 					</Grid.RowDefinitions>
 					<Grid>
 						<Grid.ColumnDefinitions>
@@ -39,18 +41,28 @@
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition />
 									<ColumnDefinition />
+									<ColumnDefinition />
+									<ColumnDefinition />
 								</Grid.ColumnDefinitions>
 								<TextBox
 									x:Name="tbxAltura" />
+								<TextBlock
+									Text="m"
+									Grid.Column="1" />
 								<TextBox
 									x:Name="tbxPeso"
-									Grid.Column="1" />
+									Grid.Column="2" />
+								<TextBlock
+									Text="kg"
+									Grid.Column="3" />
 							</Grid>
 						</Grid>
 						<TextBox
 							x:Name="tbxDescripcion"
 							Grid.Column="1" />
 					</Grid>
+					<Grid
+						Grid.Row="1"></Grid>
 				</Grid>
 			</TabItem>
 		</TabControl>
